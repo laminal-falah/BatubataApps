@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="icon_menu">
+        <item>@drawable/ic_settings</item>
+        <item>@drawable/ic_package</item>
+        <item>@drawable/ic_gold</item>
+        <item>@drawable/ic_shopping_cart</item>
+        <item>@drawable/ic_group</item>
+        <item>@drawable/ic_businessman</item>
+    </integer-array>
+</resources>

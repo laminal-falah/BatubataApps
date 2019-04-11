@@ -1,0 +1,269 @@
+<resources>
+    <string name="app_name">Batubata Apps</string>
+
+    <!-- Strings related to permission dialog -->
+    <string name="title_permission">Need Permission</string>
+    <string name="msg_permission_0">This App needs permission to work without and problems.</string>
+    <string name="msg_permission_1">You have denied some permissions. Allow all permissions at [Setting] > [Apps Or Permissions]</string>
+    <string name="positive_permission_0">Yes, Grant Permissions</string>
+    <string name="positive_permission_1">Go to Settings</string>
+    <string-array name="msg_permissions">
+        <item>@string/msg_permission_0</item>
+        <item>@string/msg_permission_1</item>
+    </string-array>
+    <string-array name="positive_permission">
+        <item>@string/positive_permission_0</item>
+        <item>@string/positive_permission_1</item>
+    </string-array>
+    <string name="negative_permission">No, Exit App</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Form Authentication</string>
+    <string name="error_invalid_email">This E-mail address is invalid</string>
+    <string name="error_credentials_email">This E-mail address not register</string>
+    <string name="error_invalid_password">This password is minimum 8 characters</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="btn_login">Login</string>
+    <string name="msg_login_success">Login Success</string>
+    <string name="msg_login_failed">Login Failed</string>
+    <string name="msg_logout">Logout</string>
+
+    <!-- Strings related to dashboard -->
+    <string name="title_menu_dashboard">Menu Dashboard</string>
+    <string name="menu_0">Menu Raw Materials</string>
+    <string name="menu_1">Menu Finish Goods</string>
+    <string name="menu_2">Menu Production</string>
+    <string name="menu_3">Menu Selling</string>
+    <string name="menu_4">Menu Management User</string>
+    <string name="menu_5">Menu Profile</string>
+    <string-array name="menu_dashboard">
+        <item>@string/menu_0</item>
+        <item>@string/menu_1</item>
+        <item>@string/menu_2</item>
+        <item>@string/menu_3</item>
+        <item>@string/menu_4</item>
+        <item>@string/menu_5</item>
+    </string-array>
+
+    <!-- Strings related to raw materials -->
+    <string name="title_bahan_mentah">Raw Materials</string>
+    <string name="title_nama_mentah">Name Materials</string>
+    <string name="stok_mentah">Stock : %s %s.</string>
+    <string name="title_add_raw">Add Raw Materials</string>
+    <string name="title_detail_raw">Detail Raw Materials</string>
+    <string name="title_edit_raw">Edit Raw Materials</string>
+    <string name="title_delete_raw">Delete Raw Materials</string>
+    <string name="hint_name_raw">Name Raw Materials</string>
+    <string name="hint_stok_raw">Stock Raw Materials</string>
+    <string name="error_name_raw">Name materials is required</string>
+    <string name="error_stock_raw_0">Stock is required</string>
+    <string name="error_stock_raw_1">Stock isn\'t zero. Min 1.</string>
+    <string name="error_unit">Units is required</string>
+    <string name="btn_save_raw">Save Raw Materials</string>
+    <string name="btn_update_raw">Update Raw Materials</string>
+    <string name="btn_delete_raw">Delete Raw Materials</string>
+    <string name="btn_cancel_raw">Cancel</string>
+    <string name="snack_bar_success_raw_0">Success added data raw materials</string>
+    <string name="snack_bar_success_raw_1">Success updated data raw materials</string>
+    <string name="snack_bar_success_raw_2">Success deleted data raw materials</string>
+    <string name="snack_bar_error_raw">Error -> %s</string>
+
+    <!-- Strings related to log raw materials -->
+    <string name="title_log_bahan_mentah">Log Raw Materials</string>
+    <string name="title_qty">Quantities : %.02f</string>
+    <string name="title_date_qty">2019&#8211;04&#8211;01 00:00:00</string>
+    <string name="title_add_log">Add Log Raw Materials</string>
+    <string name="title_edit_log">Edit Log Raw Materials</string>
+    <string name="title_delete_log">Delete Log Raw Materials</string>
+    <string name="hint_qty_log">Quantities Log</string>
+    <string name="error_qty_0">Quantities is required</string>
+    <string name="error_qty_1">Quantities isn\'t zero. Min 1.</string>
+    <string name="btn_save_log">Save Log</string>
+    <string name="btn_update_log">Update Log</string>
+    <string name="btn_delete_log">Delete Log</string>
+    <string name="btn_cancel_log">Cancel</string>
+    <string name="snack_bar_success_log_0">Success added data log</string>
+    <string name="snack_bar_success_log_1">Success updated data log</string>
+    <string name="snack_bar_success_log_2">Success deleted data log</string>
+    <string name="snack_bar_error_log">Error -> %s</string>
+
+    <!-- Strings relaed to finish goods -->
+    <string name="title_bahan_jadi">Finish Goods</string>
+    <string name="title_jadi">Name Goods</string>
+    <string name="stok_jadi">Stock : %.02f.</string>
+    <string name="harga_jadi">Rp. %s</string>
+    <string name="title_add_goods">Add Finish Goods</string>
+    <string name="title_detail_goods">Detail Finish Goods</string>
+    <string name="title_edit_goods">Edit Finish Goods</string>
+    <string name="title_delete_goods">Delete Finish Goods</string>
+    <string name="hint_name_goods">Name Finish Goods</string>
+    <string name="hint_stok_goods">Stock Finish Goods</string>
+    <string name="hint_harga_goods">Price Finish Goods</string>
+    <string name="error_name_goods">Name materials is required</string>
+    <string name="error_stock_goods_0">Stock is required</string>
+    <string name="error_stock_goods_1">Stock isn\'t zero. Min 1.</string>
+    <string name="error_harga_goods_0">Price is required</string>
+    <string name="error_harga_goods_1">Price isn\'t zero. Min 50.</string>
+    <string name="btn_save_goods">Save Finish Goods</string>
+    <string name="btn_update_goods">Update Finish Goods</string>
+    <string name="btn_delete_goods">Delete Finish Goods</string>
+    <string name="btn_cancel_goods">Cancel</string>
+    <string name="snack_bar_success_goods_0">Success added data finish goods</string>
+    <string name="snack_bar_success_goods_1">Success updated data finish goods</string>
+    <string name="snack_bar_success_goods_2">Success deleted data finssh goods</string>
+    <string name="snack_bar_error_goods">Error -> %s</string>
+
+    <!-- Strings related to selling -->
+    <string name="title_penjualan">Selling</string>
+    <string name="title_pembeli">Name Buyer : %s</string>
+    <string name="tanggal_beli">Date : %s</string>
+    <string name="total_beli">Rp. %s</string>
+    <string name="title_detail_selling">Detail Selling</string>
+    <string name="harga_bahan_detail">Price : Rp. %s</string>
+    <string name="subtotal_bahan_detail">Subtotal : Rp. %s</string>
+    <string name="jumlah_bahan_detail">Sum : %s</string>
+    <string name="total_bahan_detail">Total\nRp. %s</string>
+    <string name="snack_bar_success_sell_0">Success added data selling</string>
+    <string name="snack_bar_success_sell_1">Success updated data selling</string>
+    <string name="snack_bar_success_sell_2">Success deleted data selling</string>
+    <string name="snack_bar_error_sell">Error -> %s</string>
+
+    <!-- Strings related to Product -->
+    <string name="title_produk">Product</string>
+    <string name="nama_produk">Name Product</string>
+    <string name="harga_produk">Rp. %s</string>
+    <string name="title_jmlh">Amount</string>
+    <string name="title_counting">1</string>
+    <string name="btn_add_cart">Add to Cart</string>
+    <string name="btn_cancel_cart">Cancel</string>
+
+    <!-- Strings related to cart -->
+    <string name="title_cart">Cart</string>
+    <string name="total_harga">Total Price\nRp. %s</string>
+    <string name="btn_checkout">Pay (%s)</string>
+    <string name="snack_bar_success_cart_0">Success added item in the cart</string>
+    <string name="snack_bar_success_cart_1">Success updated item in the cart</string>
+    <string name="snack_bar_success_cart_2">Success remove item in the cart</string>
+
+    <!-- Strings related to checkout -->
+    <string name="title_checkout">Form Payment</string>
+    <string name="hint_name_buyer">Name Buyer</string>
+    <string name="btn_simpan_checkout">Save</string>
+    <string name="error_checkout_0">Name buyer is required !</string>
+    <string name="snack_bar_checkout_0">Success added data selling</string>
+
+    <!-- Strings related to profile -->
+    <string name="title_profile">Hi, %s</string>
+    <string name="name_profile">Name Profile</string>
+    <string name="subname_profile">Subname Profile</string>
+    <string name="profile_fullname">Fullname</string>
+    <string name="profile_email">E-mail</string>
+    <string name="profile_telephone">Telephone</string>
+    <string-array name="menu_profile">
+        <item>@string/profile_fullname</item>
+        <item>@string/profile_email</item>
+        <item>@string/profile_telephone</item>
+    </string-array>
+
+    <!-- Strings related to generals -->
+    <string name="msg_no_internet">No Internet Connection</string>
+    <string name="msg_back_online">Back Online</string>
+    <string name="msg_exit">Press back again to exit</string>
+    <string name="msg_data_results">Oops, couldn\'t find any results that matched your filter</string>
+    <string name="textfield_search">Search&#8230;</string>
+    <string name="text_lang">Language : (ID)</string>
+    <string name="msg_data_cart">Oops, Cart is empty !</string>
+
+    <!-- Strings related to units -->
+    <string name="value_any_unit">Choose Unit</string>
+    <string name="unit_01" translatable="false">Unit</string>
+    <string name="unit_02" translatable="false">Buah</string>
+    <string name="unit_03" translatable="false">Pasang</string>
+    <string name="unit_04" translatable="false">Lembar</string>
+    <string name="unit_05" translatable="false">Keping</string>
+    <string name="unit_06" translatable="false">Batang</string>
+    <string name="unit_07" translatable="false">Bungkus</string>
+    <string name="unit_08" translatable="false">Potong</string>
+    <string name="unit_09" translatable="false">Botol</string>
+    <string name="unit_10" translatable="false">Roll</string>
+    <string name="unit_11" translatable="false">Dus</string>
+    <string name="unit_12" translatable="false">Karung</string>
+    <string name="unit_13" translatable="false">Koli</string>
+    <string name="unit_14" translatable="false">Sak</string>
+    <string name="unit_15" translatable="false">Bal</string>
+    <string name="unit_16" translatable="false">Kaleng</string>
+    <string name="unit_17" translatable="false">Set</string>
+    <string name="unit_18" translatable="false">Gulung</string>
+    <string name="unit_19" translatable="false">Ton</string>
+    <string name="unit_20" translatable="false">Kg</string>
+    <string name="unit_21" translatable="false">Gram</string>
+    <string name="unit_22" translatable="false">Mg</string>
+    <string name="unit_23" translatable="false">Meter</string>
+    <string name="unit_24" translatable="false">M2</string>
+    <string name="unit_25" translatable="false">M3</string>
+    <string name="unit_26" translatable="false">Inch</string>
+    <string name="unit_27" translatable="false">Liter</string>
+    <string-array name="units">
+        <item>@string/value_any_unit</item>
+        <item>@string/unit_01</item>
+        <item>@string/unit_02</item>
+        <item>@string/unit_03</item>
+        <item>@string/unit_04</item>
+        <item>@string/unit_05</item>
+        <item>@string/unit_06</item>
+        <item>@string/unit_07</item>
+        <item>@string/unit_08</item>
+        <item>@string/unit_09</item>
+        <item>@string/unit_10</item>
+        <item>@string/unit_11</item>
+        <item>@string/unit_12</item>
+        <item>@string/unit_13</item>
+        <item>@string/unit_14</item>
+        <item>@string/unit_15</item>
+        <item>@string/unit_16</item>
+        <item>@string/unit_17</item>
+        <item>@string/unit_18</item>
+        <item>@string/unit_19</item>
+        <item>@string/unit_20</item>
+        <item>@string/unit_21</item>
+        <item>@string/unit_22</item>
+        <item>@string/unit_23</item>
+        <item>@string/unit_24</item>
+        <item>@string/unit_25</item>
+        <item>@string/unit_26</item>
+        <item>@string/unit_27</item>
+    </string-array>
+
+    <!-- Strings related to Filters generals -->
+    <string name="value_any_sort">Choose Sorting</string>
+    <string name="sort_by_name_0">Sort by Name A &#8211; Z</string>
+    <string name="sort_by_name_1">Sort by Name Z &#8211; A</string>
+    <string name="sort_by_stok_0">Sort by Stock Highest</string>
+    <string name="sort_by_stok_1">Sort by Stock Lowest</string>
+    <string name="sort_by_price_0">Sort by Price Highest</string>
+    <string name="sort_by_price_1">Sort by Price Lowest</string>
+    <string-array name="sort_by_mentah">
+        <item>@string/value_any_sort</item>
+        <item>@string/sort_by_name_0</item>
+        <item>@string/sort_by_name_1</item>
+        <item>@string/sort_by_stok_0</item>
+        <item>@string/sort_by_stok_1</item>
+    </string-array>
+    <string-array name="sort_by_jadi">
+        <item>@string/value_any_sort</item>
+        <item>@string/sort_by_name_0</item>
+        <item>@string/sort_by_name_1</item>
+        <item>@string/sort_by_stok_0</item>
+        <item>@string/sort_by_stok_1</item>
+        <item>@string/sort_by_price_0</item>
+        <item>@string/sort_by_price_1</item>
+    </string-array>
+    <string name="header_filter">Filter</string>
+    <string name="apply_filter">Apply</string>
+    <string name="cancel_filter">Cancel</string>
+    <string name="reset_filter">Reset</string>
+
+</resources>

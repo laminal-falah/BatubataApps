@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "493612689485",
+    "firebase_url": "https://batubataapps-edae8.firebaseio.com",
+    "project_id": "batubataapps-edae8",
+    "storage_bucket": "batubataapps-edae8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493612689485:android:84506322ed52d238",
+        "android_client_info": {
+          "package_name": "com.palcomtech.batubataapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493612689485-qlaf180es3otjkrb53l4jgl5vnfjp3j5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.palcomtech.batubataapps",
+            "certificate_hash": "5220868bb54a522a3f8b5ed40c2c4a7bdc1dabc0"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP902vH4KwFBVSfnw62MdR5peeNmlFpjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493612689485-oten5b80r9c0sdadrh6dgucrh2nh823e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
