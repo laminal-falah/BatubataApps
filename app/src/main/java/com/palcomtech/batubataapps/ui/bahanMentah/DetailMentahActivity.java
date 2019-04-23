@@ -60,6 +60,7 @@ public class DetailMentahActivity extends AppCompatActivity implements
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.tvDetailRaw) TextView tvName;
     @BindView(R.id.tvStokRaw) TextView tvStok;
+    @BindView(R.id.tvHargaMentah) TextView tvHarga;
     @BindView(R.id.icon_detail) ImageView icon_detail;
     @BindView(R.id.icon_edit) ImageView icon_edit;
     @BindView(R.id.viewEmpty) ViewGroup mEmptyView;
@@ -214,7 +215,13 @@ public class DetailMentahActivity extends AppCompatActivity implements
                 NumberFormat
                         .getNumberInstance(Locale.getDefault())
                         .format(bahanMentah.getStok()),
-                bahanMentah.getSatuan()
+                bahanMentah.getUkuran()
+            )
+        );
+        tvHarga.setText(getString(R.string.harga_jadi,
+                NumberFormat
+                        .getNumberInstance(Locale.getDefault())
+                        .format(bahanMentah.getHarga())
             )
         );
         icon_edit.setImageResource(R.drawable.ic_edit_black_24dp);

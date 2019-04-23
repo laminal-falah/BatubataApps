@@ -138,7 +138,7 @@ public class BahanMentahActivity extends AppCompatActivity implements
 
             @Override
             protected void onError(FirebaseFirestoreException e) {
-                snackbarUtils.snackbarShort("Error: check logs for info" + e.getMessage());
+                snackbarUtils.snackbarShort("Error: check logs for info : " + e.getMessage());
             }
         };
         rvMentah.setLayoutManager(new LinearLayoutManager(this));

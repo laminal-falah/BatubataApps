@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
@@ -68,6 +69,12 @@ public class DialogAddLog extends DialogFragment {
     @Override
     public void onResume() {
         super.onResume();
+        edt_qty.requestFocus();
+        WindowManager.LayoutParams p = getDialog().getWindow().getAttributes();
+        p.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        p.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE;
+        p.x = 200;
+        getDialog().getWindow().setAttributes(p);
         getDialog().getWindow().setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
@@ -79,13 +86,13 @@ public class DialogAddLog extends DialogFragment {
 
         qty = tl_qty.getEditText().getText().toString();
 
-        if (Double.parseDouble(qty) == 0) {
-            valid = false;
-            tl_qty.setError(getString(R.string.error_qty_1));
-        } else if (TextUtils.isEmpty(qty)) {
+         if (TextUtils.isEmpty(qty)) {
             valid = false;
             tl_qty.setError(getString(R.string.error_qty_0));
-        } else {
+        } else if (Double.parseDouble(qty) == 0) {
+             valid = false;
+             tl_qty.setError(getString(R.string.error_qty_1));
+         } else {
             tl_qty.setError(null);
         }
 

@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.SetOptions;
 import com.palcomtech.batubataapps.R;
 import com.palcomtech.batubataapps.model.BahanJadi;
+import com.palcomtech.batubataapps.model.BahanMentah;
 import com.palcomtech.batubataapps.ui.auth.LoginActivity;
 import com.palcomtech.batubataapps.utils.LocaleUtils;
 import com.palcomtech.batubataapps.utils.ProgressBarUtils;
@@ -65,6 +66,9 @@ public class AddEditJadiActivity extends AppCompatActivity {
     @BindView(R.id.btnSaveJadi) Button btnSave;
 
     private String rawId;
+    private String uidMentah;
+    private double stokJadi;
+    private double stoknyo;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
@@ -165,6 +169,32 @@ public class AddEditJadiActivity extends AppCompatActivity {
         edt_name.setText(bahanJadi.getNama_bahan());
         edt_stock.setText(String.valueOf(bahanJadi.getStok()));
         edt_price.setText(String.valueOf(bahanJadi.getHarga()));
+        uidMentah = bahanJadi.getUidMentah();
+        stokJadi = bahanJadi.getStok();
+
+        mFirestore.collection(BahanMentah.COLLECTION)
+                .document(uidMentah)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            stoknyo = snapshot.getDouble(BahanMentah.FIELD_STOK);
+                        } else {
+                            intent.putExtra("ERROR", getString(R.string.error_stock_goods_4));
+                            setResult(RESULT_UPDATE_FAILED, intent);
+                            finish();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        intent.putExtra("ERROR", e.getMessage());
+                        setResult(RESULT_UPDATE_FAILED, intent);
+                        finish();
+                    }
+                });
     }
 
     private boolean validate() {
@@ -180,9 +210,10 @@ public class AddEditJadiActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(setDataCharNya(tl_stock.getEditText().getText().toString()))) {
             valid = false;
             tl_stock.setError(getString(R.string.error_stock_goods_0));
-        } else if (Double.parseDouble(tl_stock.getEditText().getText().toString()) == 0) {
+        } else if (Double.parseDouble(tl_stock.getEditText().getText().toString()) == 0 ||
+                Double.parseDouble(tl_stock.getEditText().getText().toString()) > stoknyo) {
             valid = false;
-            tl_stock.setError(getString(R.string.error_stock_goods_1));
+            tl_stock.setError(getString(R.string.error_stock_goods_2, String.valueOf(stoknyo)));
         } else {
             tl_stock.setError(null);
         }
@@ -209,14 +240,15 @@ public class AddEditJadiActivity extends AppCompatActivity {
             return;
         }
         barUtils.show();
+        final double stokBaru = Double.parseDouble(tl_stock.getEditText().getText().toString());
 
         Map<String, Object> jadi = new HashMap<>();
         jadi.put("nama_bahan", setDataObjectNya(tl_name.getEditText().getText().toString()));
-        jadi.put("stok", setDataDouble(tl_stock.getEditText().getText().toString()));
+        jadi.put("stok", stokJadi + stokBaru);
         jadi.put("harga", setDataDouble(tl_price.getEditText().getText().toString()));
-        jadi.put("timestamps", Timestamp.now());
 
         if (!isEdit) {
+            jadi.put("timestamps", Timestamp.now());
             colBahanJadi = mFirestore.collection(BahanJadi.COLLECTION);
             colBahanJadi
                     .add(jadi)
@@ -246,6 +278,20 @@ public class AddEditJadiActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     resetField();
+                    mFirestore.collection(BahanMentah.COLLECTION)
+                            .document(uidMentah)
+                            .get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot snapshot) {
+                                    double nowStok = snapshot.getDouble(BahanMentah.FIELD_STOK) - stokBaru;
+                                    Map<String, Object> updated = new HashMap<>();
+                                    updated.put(BahanMentah.FIELD_STOK, nowStok);
+                                    mFirestore.collection(BahanMentah.COLLECTION)
+                                            .document(uidMentah)
+                                            .update(updated);
+                                }
+                            });
                     barUtils.hide();
                     setResult(RESULT_UPDATE_SUCCESS);
                     finish();

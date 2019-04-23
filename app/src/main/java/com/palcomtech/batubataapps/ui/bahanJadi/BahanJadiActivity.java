@@ -206,9 +206,10 @@ public class BahanJadiActivity extends AppCompatActivity implements
     }
 
     @OnClick(R.id.fab) void addJadi() {
-        startActivityForResult(new Intent(this, AddEditJadiActivity.class)
+        /*startActivityForResult(new Intent(this, AddEditJadiActivity.class)
                 .putExtra(AddEditJadiActivity.KEY_JADI_ID, AddEditJadiActivity.ADD_DATA),
-                AddEditJadiActivity.REQUEST_ADD);
+                AddEditJadiActivity.REQUEST_ADD);*/
+        startActivityForResult(new Intent(this, AddJadiActivity.class),AddJadiActivity.REQUEST_ADD);
     }
 
     @Override
@@ -236,16 +237,20 @@ public class BahanJadiActivity extends AppCompatActivity implements
         if (requestCode == AddEditJadiActivity.REQUEST_ADD) {
             if (resultCode == AddEditJadiActivity.RESULT_ADD_SUCCESS) {
                 snackbarUtils.snackBarInfinite(getString(R.string.snack_bar_success_goods_0), "OK");
+                barUtils.hide();
             } else if (resultCode == AddEditJadiActivity.RESULT_ADD_FAILED && data != null) {
                 snackbarUtils.snackBarInfinite(getString(R.string.snack_bar_error_goods,
                         data.getStringExtra("ERROR")), "DISMISS");
+                barUtils.hide();
             }
         } else if (requestCode == AddEditJadiActivity.REQUEST_UPDATE) {
             if (resultCode == AddEditJadiActivity.RESULT_UPDATE_SUCCESS) {
                 snackbarUtils.snackBarInfinite(getString(R.string.snack_bar_success_goods_1), "OK");
+                barUtils.hide();
             } else if (resultCode == AddEditJadiActivity.RESULT_UPDATE_FAILED) {
                 snackbarUtils.snackBarInfinite(getString(R.string.snack_bar_error_goods,
                         data.getStringExtra("ERROR")), "DISMISS");
+                barUtils.show();
             }
         }
     }

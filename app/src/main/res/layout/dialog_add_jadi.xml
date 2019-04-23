@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_batubata_jadi"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    tools:context=".ui.bahanJadi.DialogBatubataJadi">
+
+    <TextView
+        android:id="@+id/titleDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/title_dialog_jadi"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chooseProduct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_choose_product"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDialog" />
+
+    <TextView
+        android:id="@+id/tvProductRaw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/hint_brick_raw"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseProduct" />
+
+    <View
+        android:id="@+id/lineDetail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProductRaw" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_name_brick_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorTextAppearance="@style/AppTheme.TextErrorAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineDetail">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_name_brick_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name_goods"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:maxLines="1"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_price_brick_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_name_brick_finish">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_price_brick_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_harga_goods"
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned|numberDecimal"
+            android:maxLines="1" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <View
+        android:id="@+id/lineStok"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_price_brick_finish" />
+
+    <TextView
+        android:id="@+id/tvJumlahDialog"
+        style="@style/AppTheme.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/title_jmlh"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lineStok" />
+
+    <Button
+        android:id="@+id/btnMinus"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:drawableStart="@drawable/ic_remove_black_24dp"
+        android:text="@null"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+        app:layout_constraintEnd_toStartOf="@+id/tvCounting"
+        app:layout_constraintTop_toBottomOf="@+id/lineStok" />
+
+    <TextView
+        android:id="@+id/tvCounting"
+        style="@style/AppTheme.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="5dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="5dp"
+        android:text="@string/title_counting"
+        app:layout_constraintEnd_toStartOf="@+id/btnPlus"
+        app:layout_constraintTop_toBottomOf="@+id/lineStok" />
+
+    <Button
+        android:id="@+id/btnPlus"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:drawableStart="@drawable/ic_add_white_24dp"
+        android:text="@null"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddJadi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineStok" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_cancel_cart"
+        android:textColor="@color/greyDisabled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddJadi" />
+
+    <Button
+        android:id="@+id/btnAddJadi"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_save_goods"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

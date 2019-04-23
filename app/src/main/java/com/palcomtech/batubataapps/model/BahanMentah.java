@@ -16,20 +16,31 @@ public class BahanMentah {
 
     private String uid;
     private String nama_bahan;
+    private String ukuran;
     private double stok;
-    private String satuan;
+    private double harga;
+    //private String satuan;
     private @ServerTimestamp Date timestamps;
 
     public BahanMentah() {
     }
 
-    public BahanMentah(String uid, String nama_bahan, double stok, String satuan) {
+    public BahanMentah(String uid, String nama_bahan, String ukuran, double stok, double harga) {
         this.uid = uid;
         this.nama_bahan = nama_bahan;
+        this.ukuran = ukuran;
         this.stok = stok;
-        this.satuan = satuan;
+        this.harga = harga;
     }
 
+    /*
+        public BahanMentah(String uid, String nama_bahan, double stok, String satuan) {
+            this.uid = uid;
+            this.nama_bahan = nama_bahan;
+            this.stok = stok;
+            this.satuan = satuan;
+        }
+        */
     public String getUid() {
         return uid;
     }
@@ -46,6 +57,14 @@ public class BahanMentah {
         this.nama_bahan = nama_bahan;
     }
 
+    public String getUkuran() {
+        return ukuran;
+    }
+
+    public void setUkuran(String ukuran) {
+        this.ukuran = ukuran;
+    }
+
     public double getStok() {
         return stok;
     }
@@ -54,12 +73,22 @@ public class BahanMentah {
         this.stok = stok;
     }
 
+    /*
     public String getSatuan() {
         return satuan;
     }
 
     public void setSatuan(String satuan) {
         this.satuan = satuan;
+    }
+    */
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public void setHarga(double harga) {
+        this.harga = harga;
     }
 
     public Date getTimestamps() {

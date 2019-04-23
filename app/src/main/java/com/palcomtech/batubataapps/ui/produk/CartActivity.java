@@ -200,6 +200,8 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnCar
                                         total = total + Integer.parseInt(t[1].replace(",",""));
                                     } else if (t[1].contains(".")) {
                                         total = total + Integer.parseInt(t[1].replace(".",""));
+                                    } else {
+                                        total = total + Integer.parseInt(t[1]);
                                     }
                                 }
                             }

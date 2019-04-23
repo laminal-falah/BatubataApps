@@ -90,13 +90,9 @@ public class DashboardActivity extends AppCompatActivity implements MenuAdapter.
         } else if (i == 1) {
             startActivity(new Intent(this, BahanJadiActivity.class));
         } else if (i == 2) {
-            snackbarUtils.snackbarShort(getString(R.string.menu_2));
-        } else if (i == 3) {
             startActivity(new Intent( this, PenjualanActivity.class));
-        } else if (i == 4) {
+        } else if (i == 3) {
             startActivity(new Intent(this, ProfileActivity.class));
-        } else if (i == 5) {
-            snackbarUtils.snackBarLong(getString(R.string.menu_4));
         }
     }
 
@@ -131,7 +127,7 @@ public class DashboardActivity extends AppCompatActivity implements MenuAdapter.
         @SuppressLint("ResourceType") String[][] listMenu = {
                 {String.valueOf(iconMenu.getResourceId(0,-1)), titleMenu[0]},
                 {String.valueOf(iconMenu.getResourceId(1,-1)), titleMenu[1]},
-                {String.valueOf(iconMenu.getResourceId(2,-1)), titleMenu[2]},
+                //{String.valueOf(iconMenu.getResourceId(2,-1)), titleMenu[2]},
                 {String.valueOf(iconMenu.getResourceId(3,-1)), titleMenu[3]},
                 //{String.valueOf(iconMenu.getResourceId(4,-1)), titleMenu[4]},
                 {String.valueOf(iconMenu.getResourceId(5,-1)), titleMenu[5]},

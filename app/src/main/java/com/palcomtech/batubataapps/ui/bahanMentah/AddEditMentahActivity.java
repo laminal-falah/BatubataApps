@@ -64,9 +64,15 @@ public class AddEditMentahActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.tl_name) TextInputLayout tl_name;
     @BindView(R.id.edt_name) TextInputEditText edt_name;
+    /*
     @BindView(R.id.tl_stock) TextInputLayout tl_stock;
     @BindView(R.id.edt_stock) TextInputEditText edt_stock;
     @BindView(R.id.spinner_unit) Spinner mSpinnerUnit;
+    */
+    @BindView(R.id.tl_ukuran) TextInputLayout tl_ukuran;
+    @BindView(R.id.edt_ukuran) TextInputEditText edt_ukuran;
+    @BindView(R.id.tl_price) TextInputLayout tl_price;
+    @BindView(R.id.edt_price) TextInputEditText edt_price;
     @BindView(R.id.btnSaveMentah) Button btnSave;
 
     private TextView tvUnit;
@@ -116,6 +122,7 @@ public class AddEditMentahActivity extends AppCompatActivity {
             }
         });
 
+        initAuth();
         initFirestore();
     }
 
@@ -127,7 +134,7 @@ public class AddEditMentahActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getUnit();
+        //getUnit();
     }
 
     @Override
@@ -180,6 +187,9 @@ public class AddEditMentahActivity extends AppCompatActivity {
 
     private void setBahanMentah(BahanMentah bahanMentah) {
         edt_name.setText(bahanMentah.getNama_bahan());
+        edt_ukuran.setText(bahanMentah.getUkuran());
+        edt_price.setText(String.valueOf(bahanMentah.getHarga()));
+        /*
         edt_stock.setText(String.valueOf(bahanMentah.getStok()));
         int selectedUnit = 0;
         String[] unit = getResources().getStringArray(R.array.units);
@@ -189,6 +199,7 @@ public class AddEditMentahActivity extends AppCompatActivity {
             }
         }
         mSpinnerUnit.setSelection(selectedUnit);
+        */
     }
 
     private void getUnit() {
@@ -212,13 +223,13 @@ public class AddEditMentahActivity extends AppCompatActivity {
                 return view;
             }
         };
-        mSpinnerUnit.setAdapter(unitAdapter);
+        //mSpinnerUnit.setAdapter(unitAdapter);
     }
 
     private boolean validate() {
         boolean valid = true;
 
-        tvUnit = (TextView) mSpinnerUnit.getSelectedView();
+        //tvUnit = (TextView) mSpinnerUnit.getSelectedView();
 
         if (TextUtils.isEmpty(setDataCharNya(tl_name.getEditText().getText().toString()))) {
             valid = false;
@@ -227,6 +238,24 @@ public class AddEditMentahActivity extends AppCompatActivity {
             tl_name.setError(null);
         }
 
+        if (TextUtils.isEmpty(setDataCharNya(tl_ukuran.getEditText().getText().toString()))) {
+            valid = false;
+            tl_ukuran.setError(getString(R.string.error_ukuran));
+        } else {
+            tl_ukuran.setError(null);
+        }
+
+        if (TextUtils.isEmpty(setDataCharNya(tl_price.getEditText().getText().toString()))) {
+            valid = false;
+            tl_price.setError(getString(R.string.error_harga_goods_0));
+        } else if (setDataDouble(tl_price.getEditText().getText().toString()) < 50) {
+            valid = false;
+            tl_price.setError(getString(R.string.error_harga_goods_1));
+        } else {
+            tl_price.setError(null);
+        }
+
+        /*
         if (TextUtils.isEmpty(setDataCharNya(tl_stock.getEditText().getText().toString()))) {
             valid = false;
             tl_stock.setError(getString(R.string.error_stock_raw_0));
@@ -243,7 +272,7 @@ public class AddEditMentahActivity extends AppCompatActivity {
         } else {
             tvUnit.setError(null);
         }
-
+        */
         return valid;
     }
 
@@ -257,12 +286,13 @@ public class AddEditMentahActivity extends AppCompatActivity {
         barUtils.show();
 
         Map<String, Object> mentah = new HashMap<>();
-        mentah.put("nama_bahan", setDataObjectNya(tl_name.getEditText().getText().toString()));
-        mentah.put("stok", setDataDouble(tl_stock.getEditText().getText().toString()));
-        mentah.put("satuan", setDataObjectNya(mSpinnerUnit.getSelectedItem().toString()));
-        mentah.put("timestamps", Timestamp.now());
 
         if (!isEdit) {
+            mentah.put("nama_bahan", setDataObjectNya(tl_name.getEditText().getText().toString()));
+            mentah.put("ukuran", setDataObjectNya(tl_ukuran.getEditText().getText().toString()));
+            mentah.put("stok", 0);
+            mentah.put("harga", setDataDouble(tl_price.getEditText().getText().toString()));
+            mentah.put("timestamps", Timestamp.now());
             colBahanMentah = mFirestore.collection(BahanMentah.COLLECTION);
             colBahanMentah
                     .add(mentah)
@@ -288,6 +318,9 @@ public class AddEditMentahActivity extends AppCompatActivity {
                         }
                     });
         } else {
+            mentah.put("nama_bahan", setDataObjectNya(tl_name.getEditText().getText().toString()));
+            mentah.put("ukuran", setDataObjectNya(tl_ukuran.getEditText().getText().toString()));
+            mentah.put("harga", setDataDouble(tl_price.getEditText().getText().toString()));
             refBahanMentah.update(mentah).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -323,7 +356,7 @@ public class AddEditMentahActivity extends AppCompatActivity {
 
     private void resetField() {
         edt_name.setText(null);
-        edt_stock.setText(null);
-        mSpinnerUnit.setSelection(0);
+        //edt_stock.setText(null);
+        //mSpinnerUnit.setSelection(0);
     }
 }

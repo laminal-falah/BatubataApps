@@ -73,6 +73,13 @@
                     android:text="@string/stok_mentah"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+                <TextView
+                    android:id="@+id/tvHargaMentah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="0dp"
+                    android:text="@string/harga_jadi" />
+
             </LinearLayout>
 
             <ImageView

@@ -49,6 +49,7 @@ public class BahanMentahAdapter extends FirestoreAdapter<BahanMentahAdapter.View
         @BindView(R.id.ivTextDrawable) ImageView icon;
         @BindView(R.id.tvTitleMentah) TextView tvTitleMentah;
         @BindView(R.id.tvStokMentah) TextView tvStokMentah;
+        @BindView(R.id.tvHargaMentah) TextView tvHarga;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,8 +65,15 @@ public class BahanMentahAdapter extends FirestoreAdapter<BahanMentahAdapter.View
                     NumberFormat
                             .getNumberInstance(Locale.getDefault())
                             .format(mentah.getStok()),
-                    mentah.getSatuan()
-            ));
+                    mentah.getUkuran()
+                )
+            );
+            tvHarga.setText(resources.getString(R.string.harga_jadi,
+                    NumberFormat
+                            .getNumberInstance(Locale.getDefault())
+                            .format(mentah.getHarga())
+                )
+            );
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
