@@ -16,7 +16,7 @@ android {
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -57,9 +57,9 @@ dependencies {
     // Animation Loading
     implementation 'com.github.ybq:Android-SpinKit:1.2.0'
     // Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.google.firebase:firebase-firestore:18.2.0'
-    implementation 'com.google.firebase:firebase-auth:16.2.1'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.google.firebase:firebase-firestore:19.0.2'
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     // Textdrawable
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'

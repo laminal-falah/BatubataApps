@@ -177,12 +177,18 @@ public class AddJadiActivity extends AppCompatActivity implements DialogBatubata
 
     @Override
     public void onSelectedItemBrickListener(DocumentSnapshot snapshot) {
-        Bundle args = new Bundle();
-        args.putString(DialogBatubataJadi.ID, snapshot.getId());
-        args.putString(DialogBatubataJadi.NAME_PRODUCT, snapshot.getString(BahanMentah.FIELD_BAHAN));
-        args.putDouble(DialogBatubataJadi.STOCK_PRODUCT, snapshot.getDouble(BahanMentah.FIELD_STOK));
-        mDialogBatubataJadi.setArguments(args);
-        mDialogBatubataJadi.show(getSupportFragmentManager(), DialogBatubataJadi.TAG);
+        String name = snapshot.getString(BahanMentah.FIELD_BAHAN);
+        double stok = snapshot.getDouble(BahanMentah.FIELD_STOK);
+        if (stok > 999) {
+            Bundle args = new Bundle();
+            args.putString(DialogBatubataJadi.ID, snapshot.getId());
+            args.putString(DialogBatubataJadi.NAME_PRODUCT, name);
+            args.putDouble(DialogBatubataJadi.STOCK_PRODUCT, stok);
+            mDialogBatubataJadi.setArguments(args);
+            mDialogBatubataJadi.show(getSupportFragmentManager(), DialogBatubataJadi.TAG);
+        } else {
+            snackbarUtils.snackBarLong("Stok " + name + " kurang dari seribu !");
+        }
     }
 
     @Override

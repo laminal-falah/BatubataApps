@@ -105,7 +105,7 @@
     <string name="nama_produk">Nama Produk</string>
     <string name="harga_produk">Rp. %s</string>
     <string name="title_jmlh">Jumlah</string>
-    <string name="title_counting">1</string>
+    <string name="title_counting">1000</string>
     <string name="btn_add_cart">Masukkan ke keranjang</string>
     <string name="btn_cancel_cart">Batal</string>
     <string name="title_cart">Keranjang</string>

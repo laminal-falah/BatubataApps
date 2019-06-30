@@ -46,7 +46,7 @@ public class DialogBatubataJadi extends DialogFragment {
 
     private String uid, namaBatu, namaBarang;
     private double stok = 0, harga = 0;
-    private int count = 1;
+    private int count = 1000;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class DialogBatubataJadi extends DialogFragment {
         ButterKnife.bind(this, mView);
         btnMinus.setEnabled(false);
         tvProduk.setText(namaBarang);
-        if (stok < 1) {
+        if (stok < 1000) {
             count = (int) stok;
             getJmlh(count);
             btnAdd.setEnabled(false);
@@ -127,26 +127,26 @@ public class DialogBatubataJadi extends DialogFragment {
     }
 
     @OnClick(R.id.btnMinus) void minus() {
-        if (count < 2) {
-            count = 1;
+        if (count < 2000) {
+            count = 1000;
             btnMinus.setEnabled(false);
             btnPlus.setEnabled(true);
         } else {
             btnPlus.setEnabled(true);
             btnMinus.setEnabled(true);
-            count--;
+            count-=1000;
         }
         getJmlh(count);
     }
 
     @OnClick(R.id.btnPlus) void plus() {
-        if (count > stok - 1) {
+        if (count > stok - 1000) {
             btnPlus.setEnabled(false);
             btnMinus.setEnabled(true);
         } else {
             btnPlus.setEnabled(true);
             btnMinus.setEnabled(true);
-            count++;
+            count+=1000;
         }
         getJmlh(count);
     }
@@ -169,7 +169,7 @@ public class DialogBatubataJadi extends DialogFragment {
 
     private void resetForm() {
         if (mView != null) {
-            count = 1;
+            count = 1000;
             tvCount.setText(String.valueOf(count));
         }
     }
