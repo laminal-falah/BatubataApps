@@ -62,7 +62,7 @@ public class CartAdapter extends FirestoreAdapter<CartAdapter.ViewHolder> {
         private Resources resources;
 
         private double total = 0, harga = 0;
-        private int count = 1;
+        private int count = 1000;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,7 +89,7 @@ public class CartAdapter extends FirestoreAdapter<CartAdapter.ViewHolder> {
                 public void onClick(View v) {
                     btnPlus.setEnabled(true);
                     btnMinus.setEnabled(true);
-                    count++;
+                    count+=1000;
                     getTotal(count);
                     getJmlh(count);
                     if (listener != null) {
@@ -100,14 +100,14 @@ public class CartAdapter extends FirestoreAdapter<CartAdapter.ViewHolder> {
             btnMinus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (count < 2) {
-                        count = 1;
+                    if (count < 2000) {
+                        count = 1000;
                         btnMinus.setEnabled(false);
                         btnPlus.setEnabled(true);
                     } else {
                         btnPlus.setEnabled(true);
                         btnMinus.setEnabled(true);
-                        count--;
+                        count-=1000;
                     }
                     getTotal(count);
                     getJmlh(count);

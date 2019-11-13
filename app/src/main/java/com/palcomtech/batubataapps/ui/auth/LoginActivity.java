@@ -20,9 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.palcomtech.batubataapps.R;
@@ -165,11 +167,20 @@ public class LoginActivity extends AppCompatActivity {
                             } catch (FirebaseAuthInvalidCredentialsException invalidPassword) {
                                 txtPass.setError(getString(R.string.error_incorrect_password));
                                 txtPass.requestFocus();
+                            } catch (FirebaseAuthException auth) {
+                                Toast.makeText(getApplicationContext(), auth.getMessage(), Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
+                                snackbarUtils.snackbarShort(e.getMessage());
                                 e.printStackTrace();
                             }
                         }
                         barUtils.hide();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        e.printStackTrace();
                     }
                 });
     }

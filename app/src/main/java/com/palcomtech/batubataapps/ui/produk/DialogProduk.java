@@ -44,7 +44,7 @@ public class DialogProduk extends DialogFragment {
 
     private String uid, nama;
     private double stok = 0, hrga = 0, total = 0;
-    private int count = 1;
+    private int count = 1000;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -103,14 +103,14 @@ public class DialogProduk extends DialogFragment {
     }
 
     @OnClick(R.id.btnMinus) void minus() {
-        if (count < 2) {
-            count = 1;
+        if (count < 2000) {
+            count = 1000;
             btnMinus.setEnabled(false);
             btnPlus.setEnabled(true);
         } else {
             btnPlus.setEnabled(true);
             btnMinus.setEnabled(true);
-            count--;
+            count-=1000;
         }
         getTotal(count);
         getJmlh(count);
@@ -123,7 +123,7 @@ public class DialogProduk extends DialogFragment {
         } else {
             btnPlus.setEnabled(true);
             btnMinus.setEnabled(true);
-            count++;
+            count+=1000;
         }
         getTotal(count);
         getJmlh(count);
@@ -144,7 +144,7 @@ public class DialogProduk extends DialogFragment {
 
     private void resetCart() {
         if (mView != null) {
-            count = 1;
+            count = 1000;
             tvCount.setText(String.valueOf((int) total));
         }
     }
